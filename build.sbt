@@ -65,5 +65,5 @@ lazy val root: Project =
     )
     .aggregate(protocGenSecureGrpc.agg)
     .aggregate(
-      (codeGen.projectRefs ++ core.projectRefs) *
+      (codeGen.projectRefs ++ core.projectRefs ++ e2e.projectRefs) *
     )
