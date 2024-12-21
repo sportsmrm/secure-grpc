@@ -46,9 +46,8 @@ lazy val e2e = (projectMatrix in file("e2e"))
     skip / publish := true,
     codeGenClasspath := (codeGenJVM212 / Compile / fullClasspath).value,
     libraryDependencies ++= Seq(
-      "org.scalameta" %% "munit" % "1.0.3" % Test
+      "org.scalatest" %% "scalatest" % "3.2.19" % Test
     ),
-    testFrameworks += new TestFramework("munit.Framework"),
     Compile / PB.targets := Seq(
       scalapb.gen() -> (Compile / sourceManaged).value / "scalapb",
       genModule("io.sportsmrm.grpc.secure.compiler.CodeGenerator$") -> (Compile / sourceManaged).value / "scalapb"
