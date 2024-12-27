@@ -6,8 +6,9 @@ import com.google.protobuf.Descriptors._
 import protocbridge.Artifact
 import protocgen.{CodeGenApp, CodeGenResponse, CodeGenRequest}
 import scalapb.compiler.{DescriptorImplicits, FunctionalPrinter, ProtobufGenerator}
-import scalapb.options.compiler.Scalapb
-import scala.collection.JavaConverters._
+import scalapb.options.Scalapb
+import scala.jdk.CollectionConverters._
+
 
 object CodeGenerator extends CodeGenApp {
   override def registerExtensions(registry: ExtensionRegistry): Unit = {
