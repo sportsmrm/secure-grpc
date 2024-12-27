@@ -1,15 +1,15 @@
 package io.sportsmrm.grpc.secure
 
-import io.sportsmrm.grpc.secure.test._
+import io.sportsmrm.grpc.secure._
 import org.scalatest.funsuite.AnyFunSuite
 
 class MyTest extends AnyFunSuite {
     test("TestMessageFieldNums is generated") {
-        assert(TestMessageFieldNums.a == 1)
-        assert(TestMessageFieldNums.b == 2)
+        assert(TestMessage.A_FIELD_NUMBER == 1)
+        assert(TestMessage.B_FIELD_NUMBER == 2)
     }
 
     test("NestedMessage is generated") {
-        assert(TestMessageFieldNums.NestedMessageFieldNums.color == 1)
+        assert(TestMessage.NestedMessage.COLOR_FIELD_NUMBER == 1)
     }
 }

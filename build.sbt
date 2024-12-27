@@ -41,6 +41,7 @@ lazy val protocGenSecureGrpc = protocGenProject("protoc-gen-secure-grpc", codeGe
 lazy val e2e = (projectMatrix in file("e2e"))
   .dependsOn(core)
   .enablePlugins(LocalCodeGenPlugin)
+  .enablePlugins(PekkoGrpcPlugin)
   .defaultAxes()
   .settings(
     skip / publish := true,
@@ -48,8 +49,7 @@ lazy val e2e = (projectMatrix in file("e2e"))
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "3.2.19" % Test
     ),
-    Compile / PB.targets := Seq(
-      scalapb.gen() -> (Compile / sourceManaged).value / "scalapb",
+    Compile / PB.targets ++= Seq(
       genModule("io.sportsmrm.grpc.secure.compiler.CodeGenerator$") -> (Compile / sourceManaged).value / "scalapb"
     )
   )

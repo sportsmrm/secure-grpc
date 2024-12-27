@@ -39,11 +39,8 @@ object CodeGenerator extends CodeGenApp {
         // Process each top-level message in each file.
         // This can be customized if you want to traverse the input in a different way.
         CodeGenResponse.succeed(
-          for {
-            file <- request.filesToGenerate
-            message <- file.getMessageTypes().asScala
-          } yield new MessagePrinter(message, implicits).result
-      )
+          Seq.empty
+        )
       case Left(error)   =>
         CodeGenResponse.fail(error)
     }
